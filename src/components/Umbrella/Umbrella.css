@@ -1,0 +1,23 @@
+.Umbrella {
+    padding: 0;
+    margin: 0;
+    height: 100px;
+}
+
+.heading-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin-right: 5%;
+    font-size: 40px;
+}
+
+.umbrella-logo {
+    display: flex;
+    height: 50%;
+}
