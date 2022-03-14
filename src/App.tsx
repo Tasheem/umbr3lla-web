@@ -3,7 +3,7 @@ import logo from './images/umbr3lla-logo.png';
 import './App.css';
 import WeatherButton from './components/WeatherButton/WeatherButton';
 import Umbrella from './components/Umbrella/Umbrella';
-import umbrellaCorpLogo from './images/umbrella-corp.png';
+import { Routes, Route, Link } from "react-router-dom";
 
 class App extends React.Component {
   createButtons() {
@@ -19,12 +19,16 @@ class App extends React.Component {
 
   render(): ReactNode {
     return(
-      <div>
+      <div className='App'>
         <Umbrella />
-        <div className='btn-container'>
-          <img src={logo} className="secondary-umbrella-logo" alt="logo" />
-          {this.createButtons()}
-        </div>
+        <Routes>
+          <Route path='/' element={
+            <div className='btn-container'>
+              <img src={logo} className="secondary-umbrella-logo" alt="logo" />
+              {this.createButtons()}
+            </div>
+          } />
+        </Routes>
       </div>
     )
   }
