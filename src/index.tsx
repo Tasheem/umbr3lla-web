@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Umbrella from './components/Umbrella/Umbrella';
@@ -7,8 +8,7 @@ import WeatherButton from './components/WeatherButton/WeatherButton';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Umbrella />
-    <WeatherButton />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

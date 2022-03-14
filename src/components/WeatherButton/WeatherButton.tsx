@@ -1,12 +1,19 @@
 import React, { FC } from 'react';
 import './WeatherButton.css';
 
-interface WeatherButtonProps {}
+interface WeatherButtonProps {
+  weatherLabel: String
+  fontSize: number
+}
 
-const WeatherButton: FC<WeatherButtonProps> = () => (
-  <div className="WeatherButton">
-    <button className="weather-btn">Local Weather</button>
+const WeatherButton: FC<WeatherButtonProps> = (props) => {
+  const size = `${props.fontSize}px`;
+
+  const btn = <div className="WeatherButton">
+    <button style={{fontSize: size}} className="weather-btn">{props.weatherLabel}</button>
   </div>
-);
+
+  return btn;
+}
 
 export default WeatherButton;
