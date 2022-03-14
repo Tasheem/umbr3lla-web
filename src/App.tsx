@@ -4,6 +4,7 @@ import './App.css';
 import WeatherButton from './components/WeatherButton/WeatherButton';
 import Umbrella from './components/Umbrella/Umbrella';
 import { Routes, Route, Link } from "react-router-dom";
+import LocalWeather from './components/LocalWeather/LocalWeather';
 
 class App extends React.Component {
   createButtons() {
@@ -22,7 +23,8 @@ class App extends React.Component {
       <div className='App'>
         <Umbrella />
         <Routes>
-          <Route path='/' element={
+          <Route path='/' element={<LocalWeather />} />
+          <Route path='about' element={
             <div className='btn-container'>
               <img src={logo} className="secondary-umbrella-logo" alt="logo" />
               {this.createButtons()}

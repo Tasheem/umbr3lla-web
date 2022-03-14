@@ -1,5 +1,6 @@
 .weather-btn {
-    background-color: rgb(115, 134, 199);
+    --secondary-blue: rgba(103, 131, 221, .7);
+    background-color: var(--secondary-blue);
     font-size: 20px;
     border-radius: 8px;
     border-style: none;
