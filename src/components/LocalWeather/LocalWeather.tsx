@@ -11,7 +11,7 @@ const LocalWeather: FC<LocalWeatherProps> = () => (
     <Card />
 
     <div className="btn-container">
-      <WeatherButton fontSize={20} weatherLabel={"Advanced Stats"} />
+      <WeatherButton path='/' fontSize={20} weatherLabel={"Advanced Stats"} />
     </div>
   </div>
 );

@@ -11,7 +11,11 @@ class App extends React.Component {
     const labels = ['Local Weather', 'Weather By Zip'];
 
     const btns: JSX.Element[] = labels.map((label) => {
-      const weatherBtn = <div className='row-container'><WeatherButton fontSize={40} weatherLabel={label} /></div>;
+      let path = '/';
+      if(label === 'Local Weather')
+        path = '/local'
+
+      const weatherBtn = <div className='row-container'><WeatherButton path={path} fontSize={40} weatherLabel={label} /></div>;
       return weatherBtn;
     })
 
@@ -23,13 +27,13 @@ class App extends React.Component {
       <div className='App'>
         <Umbrella />
         <Routes>
-          <Route path='/' element={<LocalWeather />} />
-          <Route path='about' element={
+          <Route path='/' element={
             <div className='btn-container'>
               <img src={logo} className="secondary-umbrella-logo" alt="logo" />
               {this.createButtons()}
             </div>
           } />
+          <Route path='/local' element={<LocalWeather />} />
         </Routes>
       </div>
     )
