@@ -8,7 +8,7 @@ interface LocalWeatherProps {}
 const LocalWeather: FC<LocalWeatherProps> = () => (
   <div className="LocalWeather">
     <h2 className='local-weather-heading'>Weather At Your Location</h2>
-    <Card />
+    <Card zip={null} city={"Birmingham"} />
 
     <div className="btn-container">
       <WeatherButton path='/' fontSize={20} weatherLabel={"Advanced Stats"} />

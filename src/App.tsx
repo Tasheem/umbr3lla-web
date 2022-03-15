@@ -5,6 +5,7 @@ import WeatherButton from './components/WeatherButton/WeatherButton';
 import Umbrella from './components/Umbrella/Umbrella';
 import { Routes, Route, Link } from "react-router-dom";
 import LocalWeather from './components/LocalWeather/LocalWeather';
+import WeatherQuery from './components/WeatherQuery/WeatherQuery';
 
 class App extends React.Component {
   createButtons() {
@@ -34,6 +35,7 @@ class App extends React.Component {
             </div>
           } />
           <Route path='/local' element={<LocalWeather />} />
+          <Route path='/query' element={<WeatherQuery />} />
         </Routes>
       </div>
     )

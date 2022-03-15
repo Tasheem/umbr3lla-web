@@ -1,0 +1,22 @@
+.WeatherQuery {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.query-input {
+    height: 30px;
+    width: 20%;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+.Card {
+    height: 400px;
+    width: 350px;
+}
+
+.WeatherButton {
+    margin-top: 30px;
+}

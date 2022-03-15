@@ -1,18 +1,25 @@
 import React, { FC, useEffect, useState } from 'react';
 import './Card.css';
 
-interface CardProps {}
+interface CardProps {
+  zip: number | null;
+  city: string | null;
+}
 
-const Card: FC<CardProps> = () => {
+const Card: FC<CardProps> = (props) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [weatherInfo, setWeatherInfo] = useState([]);
-  let count = 0
 
   useEffect(() => {
-    const cityName = 'Birmingham';
     const apiKey = '0af6e62f4ea0c9d0d46f5e69e763805d';
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
+
+    let url = '';
+    if(props.city === null)
+      url = `http://api.openweathermap.org/data/2.5/weather?zip=${props.zip},us&appid=${apiKey}&units=imperial`;
+    else
+      url = `http://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=imperial`;
+
     const headers = {
         method: 'GET'
     }
@@ -23,7 +30,6 @@ const Card: FC<CardProps> = () => {
         (result) => {
           setIsLoaded(true);
           console.log(result);
-          result.key = 1;
           setWeatherInfo(result);
         },
         // Note: it's important to handle errors here
@@ -34,7 +40,7 @@ const Card: FC<CardProps> = () => {
           setError(error);
         }
       )
-  }, [])
+  }, [props.zip])
 
   if (error) {
     return <div>Error: {(error as Error).message}</div>;
@@ -42,7 +48,8 @@ const Card: FC<CardProps> = () => {
     return <div>Loading...</div>;
   } else {
     return (
-      <div className="Card" key={1}>
+      <div className="Card">
+        <p>City: {(weatherInfo as any).name}</p>
         <p>Temp: {(weatherInfo as any).main?.temp}°</p>
         <p>Wind Speed: {(weatherInfo as any).wind?.speed} MPH</p>
       </div>
